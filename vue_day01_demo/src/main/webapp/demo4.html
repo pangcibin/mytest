@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vv-on:mouseover</title>
+        <script src="js/vuejs-2.5.16.js"></script>
+    <style>
+        #div {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+       <div @mouseover="fun1" id="div" style="width: 70%;height: 80%">
+           12345
+           <textarea @moseover="fun2($event)">abc</textarea>
+       </div>
+    </div>
+</body>
+<script>
+    new Vue({
+       el:"#app",
+        data:{
+           message:10
+        },
+        methods:{
+           fun1:function () {
+               alert("div区域......");
+               },
+            fun2:function (e) {
+                alert("textarea区域......");
+                e.stopPropagation();
+            }
+           }
+    });
+</script>
+</html>
